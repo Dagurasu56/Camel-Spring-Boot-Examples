@@ -1,0 +1,39 @@
+== Camel Health Checks and Spring Boot
+
+This example shows how to work with a simple Apache Camel application using Spring Boot.
+
+NOTE: Some routes fail intentionally to have health check monitor their failures
+
+=== How to run
+
+[source,console]
+----
+mvn compile spring-boot:run
+----
+
+=== Health Check
+
+You can query the health check of the application using Spring Boot actuator:
+
+[source,console]
+----
+$ http://localhost:8080/actuator/health
+----
+
+The returned response should include the health checks from Apache Camel,
+and as well two custom checks.
+
+=== JMX Management
+
+You can from JMX see the health-check status in the Camel tree under health and
+find the DefaultHealthCheck MBean.
+
+=== Help and contributions
+
+If you hit any problem using Camel or have some feedback, then please
+https://camel.apache.org/support.html[let us know].
+
+We also love contributors, so
+https://camel.apache.org/contributing.html[get involved] :-)
+
+The Camel riders!
