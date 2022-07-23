@@ -2,7 +2,7 @@
 
 rm truststore.jks
 
-kubectl get secret/my-cluster-cluster-ca-cert -o 'go-template={{index .data "ca.crt"}}' -n camel-example-strimzi | base64 -D > ca.crt
+kubectl get secret/my-cluster-cluster-ca-cert -o 'go-template={{index .data "ca.crt"}}' -n camel-example-strimzi | base64 -d > ca.crt
 
 echo "yes" | keytool -import -trustcacerts -file ca.crt -keystore truststore.jks -storepass 123456
 
